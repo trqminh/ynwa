@@ -1,0 +1,107 @@
+
+
+{{#section 'title'}}
+<title>Đăng ký</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.min.css"
+    integrity="sha256-SjAq687XUZtaah0K6nf62lqS5pdcOD7r33HxyBZ5lJg=" crossorigin="anonymous" />
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../assets/css/register.css" />
+{{/section}}
+
+
+{{#section 'js'}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.min.js"
+    integrity="sha256-G8zoqUF5tPdnKqIP/YD+QSvirWve3Ma9p+T8eFxhGiY=" crossorigin="anonymous"></script>
+{{/section}}
+
+{{#section 'main'}}
+<div class="main-cards">
+    <div class="card">
+        <div class="mb-5">
+            <h1 id="title">
+                Tạo tài khoản với YNWA <i class="fas fa-futbol"></i>
+            </h1>
+        </div>
+
+        <form action="/users/register" method = "POST" class="d-flex justify-content-center align-items-center flex-column">
+            {{#if error }}
+                <div class="form-control-feedback alert alert-danger ">
+                    <span class="align-middle">
+                        {{error}}
+                    </span>
+                </div>
+            {{/if}}
+            
+            <div class="form-group">
+                <!-- <label for="email">Email address:</label> -->
+                <input id = "email" type="email" name ="email" class="form-control" placeholder="Email" />
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="email">Email address:</label> -->
+                <input id = "username" type="text" name ="username" class="form-control" placeholder="Name" />
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="email">Email address:</label> -->
+                <input id = "phone" type="text" name ="phone" class="form-control" placeholder="Phone" />
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="email">Email address:</label> -->
+                <input id = "address" type="text" name ="address" class="form-control" placeholder="Address" />
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="pwd">Password:</label> -->
+                <input type="password" name="password" class="form-control" id="password" placeholder="Mật khẩu" />
+            </div>
+            <div class="form-group">
+                <!-- <label for="pwd">Password:</label> -->
+                <input type="password" name="confirm" class="form-control" id="confirm" placeholder="Nhập lại mật khẩu" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">
+                ĐĂNG KÝ
+            </button>
+        </form>
+
+        {{#if errors}}
+            <div class="form-control-feedback alert alert-danger ">
+                <ul>
+                {{#each errors}}
+                    <li>{{msg}}</li>
+                {{/each}}
+                </ul>
+            </div>
+        {{/if}}
+    </div>
+    <div class="card justify-content-around text-center">
+        <h3>
+            <b>ĐĂNG KÝ để dễ dàng đặt sân, liên lạc, quan sát lịch sử hoặc đưa
+                sân bóng của bạn đến gần hơn với mọi người</b>
+        </h3>
+        <div>
+            <p>Bạn đã có tài khoản?</p>
+            <button class="btn btn-outline-light" onclick="window.location.href='/users/login'">
+                Trở lại trang đăng nhập
+            </button>
+        </div>
+    </div>
+</div>
+{{/section}}

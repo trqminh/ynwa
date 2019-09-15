@@ -1,0 +1,146 @@
+{{#section 'title'}}
+<title>Loại sân và giá</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../assets/css/loaisanvagia.css" />
+{{/section}}
+
+{{#section 'js'}}
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../assets/js/loaisanvagia.js"></script>
+<script src="../assets/js/searchbar.js"></script>
+{{/section}}
+
+{{#section 'aside'}}
+
+<div class="sidenav__close-icon">
+  <i class="fas fa-times sidenav__brand-close"></i>
+</div>
+<ul class="sidenav__list">
+  <li class="sidenav__list-item ">
+    <a href="/admin/cacsancuaban"><i class="fas fa-map-marker-alt"></i><b> Các sân của bạn</b></a>
+  </li>
+  <li class="sidenav__list-item  sidenav__list-item-active">
+    <a href="/admin/loaisanvagia "><i class="fas fa-wrench"></i><b> Loại sân và giá</b></a>
+  </li>
+  <li class="sidenav__list-item ">
+    <a href="/admin/lichdatsan"><i class="fas fa-calendar-alt "></i><b> Lịch đặt sân</b></a>
+  </li>
+  <li class="sidenav__list-item ">
+    <a href="/admin/thongke"><i class="fas fa-chart-line"></i><b> Thống kê</b></a>
+  </li>
+  <li class="sidenav__list-item">
+    <i class="fas fa-info"></i><b> Trợ giúp</b>
+  </li>
+</ul>
+
+{{/section}}
+
+
+{{#section 'main'}}
+<div class="main-cards">
+  <div class="card">
+    <h6 class="d-flex justify-content-center align-items-center">
+      <b>Các sân</b>
+    </h6>
+    <nav class="overflow-auto">
+      <li>
+        <div class="d-flex flex-wrap justify-content-between m-1 align-items-center">
+          <div>
+            <b>Tên địa điểm:</b>
+          </div>
+          <div>
+            <b>Tên sân:</b>
+          </div>
+          <div>
+            <b>Giá tiền:</b>
+          </div>
+        </div>
+      </li>
+      {{#each stadiumType}}
+      <li>
+        <div class="d-flex flex-wrap justify-content-between m-1 align-items-center">
+          <div>
+            <input id="name{{id}}" type="text" class="form-control" style="width: 110px;" placeholder={{placeName}} />
+          </div>
+          <div>
+            <input id="name{{id}}" type="text" class="form-control" style="width: 110px;" placeholder={{name}} />
+          </div>
+          <div>
+            <input id="basePrice{{id}}" type="text" class="form-control" style="width: 110px;"
+              placeholder={{basePrice}} />
+          </div>
+          <div>
+            <button class="btn btn-primary btn-sm" id="update{{id}}">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <button class="btn btn-primary btn-sm" id="delete{{id}}">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </nav>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button class="btn btn-primary btn-sm ">
+        <i class="fas fa-plus-circle"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card">
+    <h6 class="d-flex justify-content-center align-items-center">
+      <b>Loại sân</b>
+    </h6>
+    <nav class="overflow-auto">
+      <li>
+        <div class="d-flex flex-wrap justify-content-between m-1 align-items-center">
+          <div>
+            <b>Tên loại:</b>
+          </div>
+          <div>
+            <b>Giá tiền:</b>
+          </div>
+        </div>
+      </li>
+      {{#each stadiumType}}
+      <li>
+        <div class="d-flex flex-wrap justify-content-between m-1 align-items-center">
+          <div>
+            <input id="name{{id}}" type="text" class="form-control" style="width: 110px;" placeholder={{name}} />
+          </div>
+          <div>
+            <input id="basePrice{{id}}" type="text" class="form-control" style="width: 110px;"
+              placeholder={{basePrice}} />
+          </div>
+          <div>
+            <button class="btn btn-primary btn-sm" id="update{{id}}">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+            <button class="btn btn-primary btn-sm" id="delete{{id}}">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </nav>
+    <div class="d-flex justify-content-end align-items-center mt-4">
+      <button class="btn btn-primary btn-sm ">
+        <i class="fas fa-plus-circle"></i>
+      </button>
+    </div>
+  </div>
+</div>
+{{/section}}

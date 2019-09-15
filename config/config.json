@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "ynwa_db",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "rbisxkkzohzygm",
+    "password": "0eda5daba993de707de1b642e2351852ec3e4808d72ba50d0cf1d181c3afd76d",
+    "database": "d94foa63hleft2",
+    "host": "ec2-54-225-205-79.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
+  }
+}

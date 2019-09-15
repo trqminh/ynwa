@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .main {
+    background-color: whitesmoke;
+  }
+  
+  .main-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    column-count: 1;
+    
+  }
+  .card {
+    display: flex;
+    -webkit-column-break-inside: avoid;
+    box-sizing: border-box;
+  }
+  /* Force varying heights to simulate dynamic content */
+  .card:first-child {
+    background-color: #0584f2;
+    color: #fff;
+    background-image: url(../img/soccer-player-1.png),
+    url(../img/soccer-player-2.png),
+    url(../img/soccer-player-3.png);
+    background-position: 97% 3%, 3% 50%, 97% 97%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 100px, 100px, 100px;
+    padding: 100px;
+  }
+  .card:nth-child(2) {
+    padding: 100px;
+    justify-content: center;
+    text-align: center;
+    color: slategray;
+  }
+  .card:nth-child(2) div button {
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    margin: 5px;
+  }
+  #title {
+    background: #000046; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #1cb5e0,
+      #000046
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #1cb5e0,
+      #000046
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .form-control {
+    background-color: #f4f4f4;
+    width: 350px;
+    padding: 20px;
+    border: none;
+    color: #a4a4a4;
+    border-radius: 20px;
+  }
+  
+  .form-group {
+    padding-bottom: 20px;
+  }
+  #forget-pass {
+    font-weight: 500;
+    padding-bottom: 25px;
+    font-size: 14px;
+    padding-left: 200px;
+  }
+  #forget-pass a {
+    color: slategray;
+  }
+  input[type="email"]::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: slategray;
+  }
+  
+  input[type="password"]::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: slategray;
+  }
+  /* Non-mobile styles, 750px breakpoint */
+  @media only screen and (min-width: 46.875em) {
+  }
+  /* Medium screens breakpoint (1050px) */
+  @media only screen and (min-width: 65.625em) {
+    /* Break out main cards into two columns */
+    .main-cards {
+      column-count: 2;
+      flex-direction: row;
+    }
+    .card:first-child {
+      flex: 1;
+      height: 100vh;
+    }
+    .card:nth-child(2) {
+      flex: 3;
+      height: 100vh;
+    }
+  }
+  

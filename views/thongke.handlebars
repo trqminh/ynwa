@@ -1,0 +1,155 @@
+{{#section 'title'}}
+<title>Thống kê</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.min.css"
+  integrity="sha256-SjAq687XUZtaah0K6nf62lqS5pdcOD7r33HxyBZ5lJg=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"
+  integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../assets/css/thongke.css" />
+
+{{/section}}
+
+{{#section 'js'}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.min.js"
+  integrity="sha256-G8zoqUF5tPdnKqIP/YD+QSvirWve3Ma9p+T8eFxhGiY=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"
+  integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
+<script src="../assets/js/thongke.js"></script>
+<script src="../assets/js/searchbar.js"></script>
+{{/section}}
+
+{{#section 'aside'}}
+<div class="sidenav__close-icon">
+  <i class="fas fa-times sidenav__brand-close"></i>
+</div>
+<ul class="sidenav__list">
+  <li class="sidenav__list-item ">
+    <a href="/admin/cacsancuaban"><i class="fas fa-map-marker-alt"></i><b> Các sân của bạn</b></a>
+  </li>
+  <li class="sidenav__list-item ">
+    <a href="/admin/loaisanvagia "><i class="fas fa-wrench"></i><b> Loại sân và giá</b></a>
+  </li>
+  <li class="sidenav__list-item ">
+    <a href="/admin/lichdatsan"><i class="fas fa-calendar-alt "></i><b> Lịch đặt sân</b></a>
+  </li>
+  <li class="sidenav__list-item sidenav__list-item-active">
+    <a href="/admin/thongke"><i class="fas fa-chart-line"></i><b> Thống kê</b></a>
+  </li>
+  <li class="sidenav__list-item">
+    <i class="fas fa-info"></i><b> Trợ giúp</b>
+  </li>
+</ul>
+{{/section}}
+
+
+{{#section 'main'}}
+<h2 class="text-center m-3" style="color: slategrey">
+  Thống kê các thông tin liên quan
+</h2>
+<div class="main-cards">
+  <div class="card">
+    <div class="row">
+      <div class="col-6">
+        <select class="custom-select" id="selectTatCaCacSan">
+          <option selected>Tất cả các sân</option>
+          {{#each places}}
+          <option>{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-6">
+        <select class="custom-select" id="selectLoaiSan">
+          <option selected>Tất cả các loại sân</option>
+          {{#each types}}
+          <option>{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <div class="row justify-content-between mt-3">
+      <div class="col-6 flatpickr input-group datepicker ">
+        <input id="idStartDay1" type="text" class="form-control" title="Ngày Bắt Đầu" placeholder="Chọn ngày.."
+          data-input />
+        <a class="input-button btn btn-light" title="Ngày Bắt Đầu" data-toggle>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="col-6 flatpickr input-group datepicker">
+        <input id="idEndDay1" type="text" class="form-control" title="Ngày Kết Thúc" placeholder="Chọn ngày.."
+          data-input />
+        <a class="input-button btn btn-light" title="Ngày Kết Thúc" data-toggle>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <button id="btnApDung" class="btn btn-primary mt-4 ">Áp dụng</button>
+    <table class="table mt-4 table-bordered">
+      <tbody>
+        <tr>
+          <th class="table-active" scope="row">Doanh thu</th>
+          <td id="tdDoanhThu"></td>
+        </tr>
+        <tr>
+          <th class="table-active" scope="row">Lượt đặt</th>
+          <td id="tdLuotDat"></td>
+        </tr>
+        <tr>
+          <th class="table-active" scope="row">Đã thanh toán</th>
+          <td id="tdDaThanhToan"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="row justify-content-between">
+      <div class="col flatpickr input-group datepicker">
+        <input id="idStartDay2" type="text" class="form-control" title="Ngày Bắt Đầu" placeholder="Chọn ngày bắt đầu.." data-input />
+        <a class="input-button btn btn-light" title="Ngày Bắt Đầu" data-toggle>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="col flatpickr input-group datepicker">
+        <input id="idEndDay2" type="text" class="form-control" title="Ngày Kết Thúc" placeholder="Chọn ngày kết thúc.." data-input />
+        <a class="input-button btn btn-light" title="Ngày Kết Thúc" data-toggle>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </a>
+      </div>
+      <button id="btnApDung1" class="col btn btn-primary">Áp dụng</button>
+    </div>
+    <div class="chart-container">
+      <canvas id="pie-chart"></canvas>
+    </div>
+    <div class="row justify-content-between">
+      <div class="col flatpickr input-group datepicker ">
+        <input id="idStartDay3" type="text" class="form-control" title="Ngày Bắt Đầu" placeholder="Chọn ngày bắt đầu.." data-input />
+        <a class="input-button btn btn-light" title="Ngày Bắt Đầu" data-toggle>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="col flatpickr input-group datepicker">
+        <input id="idEndDay3" type="text" class="form-control" title="Ngày Kết Thúc" placeholder="Chọn ngày kết thúc.." data-input />
+        <a class="input-button btn btn-light" title="Ngày Kết Thúc" data-toggle>
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </a>
+      </div>
+      <button id="btnApDung2" class="col btn btn-primary ">Áp dụng</button>
+    </div>
+    <div class="chart-container">
+      <canvas id="line-chart"></canvas>
+    </div>
+  </div>
+</div>
+{{/section}}

@@ -1,0 +1,149 @@
+{{#section 'title'}}
+<title>Các sân của bạn</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../assets/css/cacsancuaban.css" />
+{{/section}}
+
+{{#section 'js'}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../assets/js/cacsancuaban.js"></script>
+<script src="../assets/js/searchbar.js"></script>
+{{/section}}
+
+{{#section 'aside'}}
+<div class="sidenav__close-icon">
+  <i class="fas fa-times sidenav__brand-close"></i>
+</div>
+
+<ul class="sidenav__list">
+  <li class="sidenav__list-item sidenav__list-item-active">
+    <a href="/admin/cacsancuaban"><i class="fas fa-map-marker-alt"></i><b> Các sân của bạn</b></a>
+  </li>
+  <li class="sidenav__list-item ">
+    <a href="/admin/loaisanvagia "><i class="fas fa-wrench"></i><b> Loại sân và giá</b></a>
+  </li>
+  <li class="sidenav__list-item ">
+    <a href="/admin/lichdatsan"><i class="fas fa-calendar-alt "></i><b> Lịch đặt sân</b></a>
+  </li>
+  <li class="sidenav__list-item ">
+    <a href="/admin/thongke"><i class="fas fa-chart-line"></i><b> Thống kê</b></a>
+  </li>
+  <li class="sidenav__list-item">
+    <i class="fas fa-info"></i><b> Trợ giúp</b>
+  </li>
+</ul>
+{{/section}}
+
+
+{{#section 'main'}}
+<div class="container-fluid m-1">
+  <h2 class="text-center mt-3">Các địa điểm hiện có</h2>
+
+  <div class="row mb-3">
+    <div class="col">Tên địa điểm </div>
+    <div class="col">Số điện thoại </div>
+    <div class="col">Số nhà </div>
+    <div class="col">Đường </div>
+    <div class="col">Quận </div>
+    <div class="col">Thành phố </div>
+    <div class="col">Thao tác </div>
+  </div>
+
+  <nav>
+    {{#each places}}
+    <div class="row d-flex align-items-center mt-2">
+      <div class="col">
+        <input id = "name{{id}}" type="text" class="form-control" placeholder="{{name}}" />
+      </div>
+      <div class="col">
+        <input id = "phone{{id}}" type="text" class="form-control" placeholder="{{phone}}" />
+      </div>
+      <div class="col">
+        <input id = "streetnumber{{id}}" type="text" class="form-control" placeholder="{{streetnumber}}" />
+      </div>
+      <div class="col">
+        <input id = "streetname{{id}}" type="text" class="form-control" placeholder="{{streetname}}" />
+      </div>
+      <div class="col">
+        <input id = "district{{id}}" type="text" class="form-control" placeholder="{{district}}" />
+      </div>
+      <div class="col">
+        <input id = "city{{id}}" type="text" class="form-control" placeholder="{{city}}" />
+      </div>
+      <div class="col">
+        <button id = "update{{id}}" onclick="UpdatePlace(this.id)" class="btn btn-primary btn-sm">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <button id = "delete{{id}}" onclick="DeletePlace(this.id)" class="btn btn-primary btn-sm">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+    </div>
+    {{/each}}
+  </nav>
+  <div class="d-flex justify-content-end align-items-center mt-4 mr-2">
+    <button class="btn btn-primary btn-sm " data-toggle="modal" data-target="#addPlaceModal">
+      <i class="fas fa-plus-circle"></i>
+    </button>
+  </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="addPlaceModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Thêm địa điểm mới</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+          
+            <div class="row d-flex align-items-center">
+              <div class="col">
+                <input id = "addname" type="text" class="form-control" placeholder="Tên" />
+              </div>
+              <div class="col">
+                <input id = "addphone" type="text" class="form-control" placeholder="SĐT" />
+              </div>
+              <div class="col">
+                <input id = "addstreetnumber" type="text" class="form-control" placeholder="Số nhà" />
+              </div>
+              <div class="col">
+                <input id = "addstreetname" type="text" class="form-control" placeholder="Đường" />
+              </div>
+              <div class="col">
+                <input id = "adddistrict" type="text" class="form-control" placeholder="Quận" />
+              </div>
+              <div class="col">
+                <input id = "addcity" type="text" class="form-control" placeholder="Thành phố" />
+              </div>
+              
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button onclick="AddPlace()" type="button" class="btn btn-primary" data-dismiss="modal">Thêm</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <nav>
+    {{{paginate pagination paginationClass="pagination justify-content-center m-5"}}}
+  </nav>
+
+</div>
+
+{{/section}}

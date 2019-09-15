@@ -1,0 +1,43 @@
+<header class="header">
+    <a href="/" class="img-text-link">
+        <div class="header__logo">
+            <b>YNWA&nbsp;</b><img src="../../assets/img/ball.png" style="width:25px; height: 25px;" />
+        </div>
+    </a>
+
+    <div class="d-flex align-items-center">
+        <div class="header__search">
+            <div class="searchbar">
+                <input class="search_input" type="text" name="" placeholder="Search..." />
+                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+        </div>
+        <a href="/cart" class="img-text-link"><i class="fas fa-shopping-cart ml-3 shopping-icon"></i></a>
+        
+        {{#if isLoggedIn}}
+        <div class="header__avatar align-items-center">
+            <ul class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                    <span>{{user.name}} <img src={{user.imagepath}} /></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/users/profile">Trang cá nhân</a>
+                    {{#if user.isAdmin}}
+                    <a class="dropdown-item" href="/admin/cacsancuaban">Quản lý các sân</a>
+                    {{/if}}
+                    <a class="dropdown-item" href="/users/logout">Đăng xuất</a>
+                    
+                </div>
+            </ul>
+        </div>
+        {{else}}
+        <div class="header__avatar align-items-center ml-2">
+            <a class="img-text-link" href="/users/login">
+                <p><b>Đăng nhập</b></p>
+            </a>
+
+        </div>
+        {{/if}}
+        
+    </div>
+</header>

@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+
+  font-family: "Open Sans", Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Assign grid instructions to our parent grid container, mobile-first (hide the sidenav) */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  height: 100vh;
+}
+
+.menu-icon {
+  position: fixed; /* Needs to stay visible for all mobile scrolling */
+  display: flex;
+  top: 5px;
+  left: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #dadae3;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+  padding: 12px;
+}
+
+/* Give every child element its grid name */
+.header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px;
+  background-color: #0584f2;
+}
+/* Make room for the menu icon on mobile */
+.header__logo {
+  margin-left: 42px;
+}
+.header__avatar {
+  margin-top: 15px;
+}
+.header__avatar ul > a {
+  text-decoration: none;
+  color: white;
+}
+.searchbar {
+  background-color: transparent;
+  border: 2px solid whitesmoke;
+  border-radius: 35px;
+  box-shadow: 1px 1px grey;
+}
+.search_input {
+  color: white;
+  border: 3px white;
+  outline: 3px;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 35px;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input {
+  padding: 0 10px;
+  width: 80px;
+  caret-color: #edf259;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon {
+  background: white;
+  color: #0584f2;
+}
+
+.search_icon {
+  height: 35px;
+  width: 35px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+}
+.shopping-icon:hover {
+  color: whitesmoke;
+}
+
+.sidenav {
+  grid-area: sidenav;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  transform: translateX(-245px);
+  transition: all 0.6s ease-in-out;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 2; /* Needs to sit above the hamburger menu icon */
+  background-color: #e3e4e6;
+}
+
+.sidenav.active {
+  transform: translateX(0);
+}
+
+.sidenav__close-icon {
+  position: absolute;
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ddd;
+}
+
+.sidenav__list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  margin: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  color: slategray;
+  background-color: white;
+}
+
+.sidenav__list-item:hover{
+  background-color: #0584f2;
+  color: white;
+  cursor: pointer;
+}
+.sidenav__list-item-active{
+  background-color: #0584f2;
+  color: white;
+}
+.sidenav .sidenav__list a{
+  text-decoration: none;
+  color: inherit;
+}
+.main {
+  grid-area: main;
+  background-color: whitesmoke;
+  color: slategray;
+}
+
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 16px;
+  background-color: #0584f2;
+  height: 150px;
+}
+.footer__copyright{
+  font-size: 40px;
+}
+/* Non-mobile styles, 750px breakpoint */
+@media only screen and (min-width: 46.875em) {
+  /* Show the sidenav */
+  .grid-container {
+    grid-template-columns: 240px 1fr;
+    grid-template-areas:
+      "header header"
+      "sidenav main"
+      "footer footer";
+  }
+  .header__logo {
+    margin-left: 0;
+  }
+  .sidenav {
+    position: relative;
+    transform: translateX(0);
+  }
+
+  .sidenav__close-icon {
+    visibility: hidden;
+  }
+  .menu-icon {
+    visibility: hidden;
+  }
+  .search_input {
+    color: white;
+    width: 0;
+    line-height: 35px;
+    padding: 0 10px;
+    width: 450px;
+  }
+
+  .search_icon {
+    height: 35px;
+    width: 35px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+  }
+  .searchbar:hover > .search_input {
+    padding: 0 10px;
+    width: 450px;
+    caret-color: #EDF259;
+  }
+  
+  .searchbar:hover > .search_icon {
+    background: white;
+    color: #0584f2;
+  }
+}

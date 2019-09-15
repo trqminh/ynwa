@@ -1,0 +1,41 @@
+{
+  "name": "ptudw-cntn2016-nhom02",
+  "version": "1.0.0",
+  "description": "| Mã số sinh viên | Họ tên | |----------|:-------------:| | 1612198 | Đoàn Minh Hiếu | | 1612226 | Nguyễn Sĩ Hùng | | 1612374 | Trần Quang Minh|",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttbhanh/PTUDW-CNTN2016-Nhom02.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttbhanh/PTUDW-CNTN2016-Nhom02/issues"
+  },
+  "homepage": "https://github.com/ttbhanh/PTUDW-CNTN2016-Nhom02#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-handlebars-paginate": "^1.0.3",
+    "express-session": "^1.16.2",
+    "express-validator": "^5.3.1",
+    "faker": "^4.1.0",
+    "handlebars": "^4.1.2",
+    "i": "^0.3.6",
+    "jquery": "^3.4.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^6.0.0",
+    "sequelize-cli": "^5.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}

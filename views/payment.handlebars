@@ -1,0 +1,35 @@
+
+
+{{#section 'title'}}
+<title>Payment</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.min.css"
+  integrity="sha256-SjAq687XUZtaah0K6nf62lqS5pdcOD7r33HxyBZ5lJg=" crossorigin="anonymous" />
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../../assets/css/cart.css" />
+<script src="../assets/js/searchbar.js"></script>
+{{/section}}
+
+{{#section 'js'}}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.7/flatpickr.min.js"
+  integrity="sha256-G8zoqUF5tPdnKqIP/YD+QSvirWve3Ma9p+T8eFxhGiY=" crossorigin="anonymous"></script>
+<script src="../assets/js/cart.js"></script>
+{{/section}}
+
+
+{{#section 'main'}}
+<form action="/cart/payment" method="POST">
+    <button type="submit">Hoàn tất đặt sân</button>
+</form>
+{{/section}}
